@@ -1,31 +1,36 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>TradingView Ticker Tape</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TradingView Ticker</title>
+    <style>
+        /* Force the background to match Notion Dark Mode and hide scrollbars */
+        body, html {
+            margin: 0;
+            padding: 0;
+            background-color: #191919; /* Notion's specific dark mode hex */
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+        }
 
-		<style>
-			html, body {
-				margin: 0;
-				padding: 0;
-				background: transparent;
-			}
-		</style>
-	</head>
+        /* Ensure the widget container doesn't have a white border */
+        .tradingview-widget-container {
+            background-color: #191919 !important;
+        }
+    </style>
+</head>
+<body>
 
-	<body>
-		<script
-			type="module"
-			src="https://widgets.tradingview-widget.com/w/en/tv-ticker-tape.js"
-		></script>
+    <script type="module" src="https://widgets.tradingview-widget.com/w/en/tv-ticker-tape.js"></script>
+    <tv-ticker-tape 
+        symbols="FOREXCOM:SPXUSD,FOREXCOM:NSXUSD,FOREXCOM:DJI,FX:EURUSD,CMCMARKETS:GOLD,NASDAQ:QQQ,NASDAQ:TQQQ,AMEX:XLK,AMEX:VGT,NASDAQ:SMH,NASDAQ:SOXX,CBOE:ARKK,CBOE:IGV,NASDAQ:NVDA,NASDAQ:AAPL,NASDAQ:MSFT,NASDAQ:AMZN,NASDAQ:GOOGL,NASDAQ:META,NASDAQ:TSLA" 
+        hide-chart 
+        hover-type="performance-grid" 
+        show-hover 
+        theme="dark">
+    </tv-ticker-tape>
 
-		<tv-ticker-tape
-			symbols="FOREXCOM:SPXUSD,FOREXCOM:NSXUSD,FOREXCOM:DJI,FX:EURUSD,CMCMARKETS:GOLD,NASDAQ:QQQ,NASDAQ:TQQQ,AMEX:XLK,AMEX:VGT,NASDAQ:SMH,NASDAQ:SOXX,CBOE:ARKK,CBOE:IGV,NASDAQ:NVDA,NASDAQ:AAPL,NASDAQ:MSFT,NASDAQ:AMZN,NASDAQ:GOOGL,NASDAQ:META,NASDAQ:TSLA"
-			hide-chart
-			show-hover
-			theme="dark"
-			transparent
-		></tv-ticker-tape>
-	</body>
+</body>
 </html>
