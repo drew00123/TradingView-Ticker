@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TradingView Ticker</title>
+    <title>TradingView Ticker - Dark Fix</title>
     <style>
-        /* Force the background to match Notion Dark Mode and hide scrollbars */
+        /* Force the background to match Notion Dark Mode hex code */
         body, html {
             margin: 0;
             padding: 0;
-            background-color: #191919; /* Notion's specific dark mode hex */
+            background-color: #191919; 
             overflow: hidden;
             width: 100%;
             height: 100%;
         }
 
-        /* Ensure the widget container doesn't have a white border */
+        /* Ensure the widget container respects the background color */
         .tradingview-widget-container {
             background-color: #191919 !important;
         }
@@ -27,8 +27,6 @@
     <tv-ticker-tape 
         symbols="FOREXCOM:SPXUSD,FOREXCOM:NSXUSD,FOREXCOM:DJI,FX:EURUSD,CMCMARKETS:GOLD,NASDAQ:QQQ,NASDAQ:TQQQ,AMEX:XLK,AMEX:VGT,NASDAQ:SMH,NASDAQ:SOXX,CBOE:ARKK,CBOE:IGV,NASDAQ:NVDA,NASDAQ:AAPL,NASDAQ:MSFT,NASDAQ:AMZN,NASDAQ:GOOGL,NASDAQ:META,NASDAQ:TSLA" 
         hide-chart 
-        hover-type="performance-grid" 
-        show-hover 
         theme="dark">
     </tv-ticker-tape>
 
