@@ -5,27 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Seamless Ticker</title>
     <style>
-        /* 1. Set the page to Notion's exact dark mode hex */
         body, html {
             margin: 0;
             padding: 0;
-            background-color: #191919; 
+            background-color: #191919; /* Notion's Dark Grey */
             overflow: hidden;
             width: 100%;
             height: 100%;
         }
 
-        /* 2. Force the widget container to be transparent so it shows #191919 through */
-        .tradingview-widget-container, 
-        .tradingview-widget-container__widget,
+        /* THE TRICK: This blend mode makes the black background disappear 
+           while keeping the colored text and logos sharp. */
         tv-ticker-tape {
-            background-color: transparent !important;
-            background: transparent !important;
+            mix-blend-mode: screen;
+            filter: brightness(1.1); /* Optional: makes the logos pop slightly more */
         }
 
-        /* 3. Clean up the edges */
-        iframe {
-            border: none !important;
+        .tradingview-widget-container {
+            background-color: transparent !important;
         }
     </style>
 </head>
