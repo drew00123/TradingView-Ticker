@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TradingView Ticker - Dark Fix</title>
+    <title>Seamless Ticker</title>
     <style>
-        /* Force the background to match Notion Dark Mode hex code */
+        /* 1. Set the page to Notion's exact dark mode hex */
         body, html {
             margin: 0;
             padding: 0;
@@ -15,9 +15,17 @@
             height: 100%;
         }
 
-        /* Ensure the widget container respects the background color */
-        .tradingview-widget-container {
-            background-color: #191919 !important;
+        /* 2. Force the widget container to be transparent so it shows #191919 through */
+        .tradingview-widget-container, 
+        .tradingview-widget-container__widget,
+        tv-ticker-tape {
+            background-color: transparent !important;
+            background: transparent !important;
+        }
+
+        /* 3. Clean up the edges */
+        iframe {
+            border: none !important;
         }
     </style>
 </head>
