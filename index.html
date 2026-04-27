@@ -3,58 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="color-scheme" content="dark">
-    <title>Seamless Ticker - No Attribution</title>
+    <title>Seamless Ticker</title>
     <style>
-        /* Force the page and all containers to Notion's exact grey */
         body, html {
             margin: 0;
             padding: 0;
-            background-color: #191919 !important;
+            background-color: #191919; /* Notion's Dark Grey */
             overflow: hidden;
             width: 100%;
             height: 100%;
         }
 
-        /* Target the TradingView element directly */
+        /* THE TRICK: Your working blend mode logic */
         tv-ticker-tape {
-            background-color: #191919 !important;
+            mix-blend-mode: screen;
+            filter: brightness(1.1);
         }
 
-        /* 1. THE KILL SWITCH: Hides the "Ticker tape by TradingView" text/link */
+        .tradingview-widget-container {
+            background-color: transparent !important;
+        }
+
+        /* NEW: Kill the blue "Ticker tape by TradingView" hyperlink */
         .tradingview-widget-copyright, 
-        #tradingview-copyright,
-        div[class^="tradingview-widget-copyright"] {
+        .tradingview-widget-copyright a,
+        [class*="copyright"] {
             display: none !important;
             visibility: hidden !important;
+            opacity: 0 !important;
             height: 0 !important;
-            margin: 0 !important;
-            padding: 0 !important;
-        }
-
-        /* 2. Standard container cleanup */
-        .tradingview-widget-container,
-        .tradingview-widget-container div {
-            background-color: #191919 !important;
-            border: none !important;
-        }
-
-        iframe {
-            border: none !important;
-            display: block;
+            pointer-events: none !important;
         }
     </style>
 </head>
 <body>
 
-    <div class="tradingview-widget-container">
-        <script type="module" src="https://widgets.tradingview-widget.com/w/en/tv-ticker-tape.js"></script>
-        <tv-ticker-tape 
-            symbols="FOREXCOM:SPXUSD,FOREXCOM:NSXUSD,FOREXCOM:DJI,FX:EURUSD,CMCMARKETS:GOLD,NASDAQ:QQQ,NASDAQ:TQQQ,AMEX:XLK,AMEX:VGT,NASDAQ:SMH,NASDAQ:SOXX,CBOE:ARKK,CBOE:IGV,NASDAQ:NVDA,NASDAQ:AAPL,NASDAQ:MSFT,NASDAQ:AMZN,NASDAQ:GOOGL,NASDAQ:META,NASDAQ:TSLA" 
-            hide-chart 
-            theme="dark">
-        </tv-ticker-tape>
-    </div>
+    <script type="module" src="https://widgets.tradingview-widget.com/w/en/tv-ticker-tape.js"></script>
+    <tv-ticker-tape 
+        symbols="FOREXCOM:SPXUSD,FOREXCOM:NSXUSD,FOREXCOM:DJI,FX:EURUSD,CMCMARKETS:GOLD,NASDAQ:QQQ,NASDAQ:TQQQ,AMEX:XLK,AMEX:VGT,NASDAQ:SMH,NASDAQ:SOXX,CBOE:ARKK,CBOE:IGV,NASDAQ:NVDA,NASDAQ:AAPL,NASDAQ:MSFT,NASDAQ:AMZN,NASDAQ:GOOGL,NASDAQ:META,NASDAQ:TSLA" 
+        hide-chart 
+        theme="dark">
+    </tv-ticker-tape>
 
 </body>
 </html>
